@@ -1,5 +1,5 @@
 <template>
-  <button class="btn">
+  <button class="btn" @click="emit('click')">
         <slot>ShopNow</slot>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4" width="20px">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -7,6 +7,12 @@
         </svg>
     </button>
 </template>
+
+<script setup lang="ts">
+const emit = defineEmits<{
+  (e: 'click'): void;
+}>();
+</script>
 
 <style scoped>
     .btn {
@@ -20,5 +26,9 @@
         align-items: center;
         border: none;
         font-size: 12px;
+    }
+    .btn:hover {
+        cursor: pointer;
+        background: #32a76a;
     }
 </style>
