@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-
+  import CategoryList from "@/components/categoryComp.vue";
+  import PromoSection from "@/components/promotionComp.vue";
 </script>
 
 <template>
-  <header>
-    This is my first VueJs project
-  </header>
-
+  <div>
+    <CategoryList />
+    <PromoSection />
+  </div>
 
 </template>
-
