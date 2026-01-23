@@ -1,100 +1,84 @@
-<template>
-  <div>
-    <div class="card">
-      <div
-        v-for="(promo, index) in promos"
-        :key="index"
-        class="card-item"
-        :style="{ backgroundColor: promo.color }"
-      >
-        <div class="promo">
-          <h3>
-            {{ promo.title }}
-          </h3>
-          <span style="margin-top: 30px;"><buttonComp @click="shopNow(promo)"/></span>
-        </div>
-        <div>
-          <img :src="promo.image" :alt="promo.title"/>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-  import buttonComp from './buttonComp.vue';
+import ButtonComponent from './buttonComp.vue'
 
-import { computed } from 'vue'
-
-const props = defineProps<{
-  promos?: Array<{ title: string; image: string; color: string }>
+defineProps<{
+  title: string
+  buttonText: string
+  image: string
+  Card_color: string
+  buttonColor: string
 }>()
-
-const promos = computed(() => {
-  return props.promos && props.promos.length
-    ? props.promos
-    : [
-        {
-          title: "Everyday Fresh & Clean with Our Products",
-          image: "src/assets/images/onion.png",
-          color: "#F0E8D5",
-        },
-        {
-          title: "Make your Breakfast Healthy and Easy",
-          image: "src/assets/images/juice.png",
-          color: "#F3E8E8",
-        },
-        {
-          title: "The best Organic Products Online",
-          image: "src/assets/images/basket.png",
-          color: "#E7EAF3",
-        },
-      ]
-})
-
-function shopNow(promo: { title: string }) {
-  alert("Let's shop: " + promo.title);
-}
 
 </script>
 
+<template>
+  <div class="promotion-card" :style="{ backgroundColor: Card_color }">
+    <div id="title">
+      <h2>{{ title }}</h2>
+      <ButtonComponent :text="buttonText" :color="buttonColor" :title="title"/>
+    </div>
+    <div class="card-image-placeholder"></div>
+    <div class="promotion-image"><img :src="image" :alt="title" /></div>
+  </div>
+</template>
+
 <style scoped>
-  div > div {
-    display: flex;
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  .card {
-    gap: 20px;
-    width: 512px;
-    height: 300px;
-  }
-
-  .card-item {
-  display: flex;
+.promotion-card {
+  position: relative;
+  width: 32%;
+  height: 300px;
   padding: 20px;
   border-radius: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+#title {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  position: absolute;
+  top: 75px;
+  left: 48px;
+  z-index: 2;
+  color: black;
+  max-width: 271px;
+
+}
+
+.promotion-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+#title h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 32px;
+  letter-spacing: -0.04em;
+  color: #000;
+  margin: 0;
+  opacity: 1;
+}
+
+.promotion-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: space-between;
-  }
+}
 
-  h3 {
-    font-size: 20px;
-    font-weight: bold;
-    width: 200px;
-  }
-
-  .promo {
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  img {
-    width: auto;
-    height: auto;
-  }
-
+.promotion-image img {
+  max-width: 500px;
+  max-height: 100%;
+  object-fit: contain;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 </style>
