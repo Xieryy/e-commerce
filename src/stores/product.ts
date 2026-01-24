@@ -23,7 +23,8 @@ interface Category {
 }
 
 interface Product {
-  name: string;
+    id: number;
+    name: string;
     rating: number;
     size: string;
     image: string;
