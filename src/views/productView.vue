@@ -17,9 +17,10 @@ const product = computed(() => {
 })
 
 onMounted(async () => {
-  if (productStore.products.length === 0) {
-    await productStore.fetchAllData()
-  }
+  // Data is already in store state
+  // if (productStore.products.length === 0) {
+  //   await productStore.initializeStore()
+  // }
 })
 
 const tabs = ['Description', 'Additional info',]
@@ -64,7 +65,7 @@ const tabs = ['Description', 'Additional info',]
           <p>Spluttered narrowly yikes left moth in yikes bowed this that grizzly much hello on spoon-fed that alas rethought much decently richly and wow against the frequent fluidly at formidable acceptably flapped besides and much circa far over the bucolically hey precarious goldfinch mastodon goodness gnashed a jellyfish and one however because.</p>
         </div>
         <div v-else>
-           <p>Content for {{ activeTab }}</p>
+           <p style="color:#7E7E7E">Content for {{ activeTab }}</p>
         </div>
       </div>
     </div>

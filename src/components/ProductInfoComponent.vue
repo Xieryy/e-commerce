@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import heart from '../assets/fi-rs-heart.svg'
-import cart from '../assets/fi-rs-shopping-cart.svg'
+import heart from '@/assets/svg/fi-rs-heart.svg'
+import cart from '@/assets/svg/fi-rs-shopping-cart.svg'
+
+type Product = {
+  name: string
+  price: number
+  promotionAsPercentage: number
+  instock: number
+  rating: number
+}
 
 const props = defineProps<{
-  product: any
+  product: Product
 }>()
 
 const quantity = ref(1)
@@ -26,7 +34,7 @@ function decrement() {
 </script>
 
 <template>
-  
+
   <div class="product-info-wrapper" v-if="product">
     <span class="stock-badge" :class="{ 'in-stock': product.instock > 0 }">
       {{ product.instock > 0 ? 'In Stock' : 'Out of Stock' }}
@@ -79,10 +87,6 @@ function decrement() {
       <button class="icon-btn"><i class="fa-solid fa-shuffle"><img :src="cart" alt=""></i></button>
     </div>
 
-    <div class="meta-info">
-      <p><strong>Vendor:</strong> <span class="text-gray">NestMart</span></p>
-      <p><strong>SKU:</strong> <span class="text-gray">FWM15VKT</span></p>
-    </div>
   </div>
 </template>
 

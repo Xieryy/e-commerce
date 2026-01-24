@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import bgPattern from '@/assets/Background Showcase.png'
-import applesImg from '@/assets/Apples.png'
+
+import bg from '@/assets/images/Background Showcase.png'
+
 </script>
 
 <template>
-  <div class="showcase-container" :style="{ backgroundImage: `url('${bgPattern}')` }">
-    
+  <div class="showcase-container" :style="{ backgroundImage: `url('${bg}')` }">
+
     <div class="showcase-content">
       <h1>Don't miss amazing<br>grocery deals</h1>
       <p>Sign up for the daily newsletter</p>
-      
+
       <div class="newsletter-form">
         <i class="fa-regular fa-paper-plane"></i>
         <input type="email" placeholder="Your email address" />
@@ -18,7 +19,7 @@ import applesImg from '@/assets/Apples.png'
     </div>
 
     <div class="image-wrapper">
-      <img :src="applesImg" alt="Fresh Apples" />
+      <img :src="bg" alt="Background Showcase" />
     </div>
 
   </div>
@@ -26,9 +27,9 @@ import applesImg from '@/assets/Apples.png'
 
 <style scoped>
 .showcase-container {
-  background-color: #fdf0e0; 
+  background-color: #fdf0e0;
   background-repeat: repeat;
-  background-size: 50%; 
+  background-size: 50%;
   background-position: center;
   border-radius: 20px;
   height: 400px;
@@ -44,7 +45,7 @@ import applesImg from '@/assets/Apples.png'
 .showcase-content {
   z-index: 2;
   max-width: 50%;
-  display: block; 
+  display: block;
 }
 
 .showcase-content h1 {
@@ -112,8 +113,8 @@ import applesImg from '@/assets/Apples.png'
 }
 
 .image-wrapper img {
-  height: 110%; 
+  height: 110%;
   object-fit: contain;
-  margin-bottom: -20px; 
+  margin-bottom: -20px;
 }
 </style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import bgPattern from '../assets/Background2.png'
+import bgPattern from '@/assets/images/Background2.png'
 
 defineProps<{
   title: string

@@ -9,8 +9,8 @@ const selectedIndex = ref(0)
 const imageList = computed(() => {
   if (Array.isArray(props.images)) {
     return props.images.map(path => `http://localhost:3000/${path.replace(/\\/g, '/')}`)
-  } 
-  
+  }
+
   if (typeof props.images === 'string') {
     try {
       if (props.images.startsWith('[')) {
@@ -23,7 +23,7 @@ const imageList = computed(() => {
       return [`http://localhost:3000/${props.images.replace(/\\/g, '/')}`]
     }
   }
-  
+
   return ['src/assets/placeholder.png'] // Fallback
 })
 
@@ -38,23 +38,6 @@ const currentImage = computed(() => imageList.value[selectedIndex.value] || imag
       <img :src="currentImage" alt="Product Image" class="main-img" />
     </div>
 
-    <div class="thumbnail-slider">
-      <button class="nav-btn prev"><i class="fa-solid fa-arrow-left"></i></button>
-      
-      <div class="thumbnails">
-        <div 
-          v-for="(img, index) in imageList" 
-          :key="index"
-          class="thumb-item"
-          :class="{ active: index === selectedIndex }"
-          @click="selectedIndex = index"
-        >
-          <img :src="img" alt="thumbnail" />
-        </div>
-      </div>
-
-      <button class="nav-btn next"><i class="fa-solid fa-arrow-right"></i></button>
-    </div>
   </div>
 </template>
 

@@ -38,11 +38,12 @@ function selectProductGroup(group: string) {
 }
 
 const menuItems = computed(() => {
-  return ['All', ...productStore.groups.map((g: { id: number; name: string }) => g.name)]
+  return ['All', ...productStore.groups]
 })
 
 onMounted(async () => {
-  await productStore.fetchAllData()
+  // Data is already in store state, no need to fetch
+  // await productStore.initializeStore() // Uncomment if you want to fetch from backend
 })
 </script>
 
@@ -53,8 +54,8 @@ onMounted(async () => {
     <div class="section-header">
       <h3>Featured Categories</h3>
       <MenuComponent
-        :menuItems="menuItems"
-        :activeItem="'All'"
+        :menu-items="menuItems"
+        :active-item="currentCategoryGroup"
         @select-item="selectCategoryGroup"
       />
     </div>
@@ -64,7 +65,7 @@ onMounted(async () => {
         v-for="(category, index) in filteredCategories"
         :key="index"
         :name="category.name"
-        :image="'http://localhost:3000/' + category.image"
+        :image="category.image"
         :productCount="category.productCount"
         :color="category.color"
       />
@@ -76,7 +77,7 @@ onMounted(async () => {
         :key="index"
         :title="promotion.title"
         :buttonText="'Shop Now →'"
-        :image="'http://localhost:3000/' + promotion.image"
+        :image="promotion.image"
         :Card_color="promotion.color"
         :buttonColor="promotion.buttonColor"
       />
@@ -85,8 +86,8 @@ onMounted(async () => {
     <div class="section-header">
       <h3>Popular Products</h3>
       <MenuComponent
-        :menuItems="menuItems"
-        :activeItem="currentProductGroup"
+        :menu-items="menuItems"
+        :active-item="currentProductGroup"
         @select-item="selectProductGroup"
       />
     </div>

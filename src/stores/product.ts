@@ -1,10 +1,5 @@
 import { defineStore } from 'pinia'
 
-interface Group {
-  id: number
-  name: string
-}
-
 interface Promotion {
   id: number;
   title: string;
@@ -38,10 +33,54 @@ interface Product {
 
 export const useProductStore = defineStore('product', {
   state: () => ({
-    groups: [] as Group[],
-    promotions: [] as Promotion[],
-    categories: [] as Category[],
-    products: [] as Product[]
+    groups: ['Milks & Dairies', 'Coffes & Teas', 'Pet Foods', 'Meats', 'Vegetables', 'Fruits'],
+    promotions: [
+      {
+        id: 1,
+        title: 'Everyday Fresh & Clean with Our Products',
+        image: 'src/assets/images/onion.png',
+        color: '#F0E8D5',
+        buttonColor: '#3BB77E',
+      },
+      {
+        id: 2,
+        title: 'Make your Breakfast Healthy and Easy',
+        image: 'src/assets/images/juice.png',
+        color: '#F3E8E8',
+        buttonColor: '#3BB77E',
+      },
+      {
+        id: 3,
+        title: 'The best Organic Products Online',
+        image: 'src/assets/images/basket.png',
+        color: '#E7EAF3',
+        buttonColor: '#3BB77E',
+      },
+    ] as Promotion[],
+    categories: [
+      { id: 1, name: 'Burger', image: 'src/assets/images/Burger.png', productCount: 14, color: '#f2fce4', group: 'Milks & Dairies' },
+      { id: 2, name: 'Peach', image: 'src/assets/images/peach.png', productCount: 17, color: '#fffceb', group: 'Fruits' },
+      { id: 3, name: 'Organic Kiwi', image: 'src/assets/images/kiwi.png', productCount: 21, color: '#ecffec', group: 'Fruits' },
+      { id: 4, name: 'Red Apple', image: 'src/assets/images/apple.png', productCount: 68, color: '#feefea', group: 'Fruits' },
+      { id: 5, name: 'Snack', image: 'src/assets/images/snack.png', productCount: 34, color: '#fff3eb', group: 'Pet Foods' },
+      { id: 6, name: 'Black plum', image: 'src/assets/images/plum.png', productCount: 25, color: '#fff3ff', group: 'Fruits' },
+      { id: 7, name: 'Vegetables', image: 'src/assets/images/vegetable.png', productCount: 65, color: '#e9f8ff', group: 'Vegetables' },
+      { id: 8, name: 'Headphone', image: 'src/assets/images/headphone.png', productCount: 33, color: '#fffceb', group: 'Meats' },
+      { id: 9, name: 'Cake & Milk', image: 'src/assets/images/cake2.png', productCount: 54, color: '#f2fce4', group: 'Milks & Dairies' },
+      { id: 10, name: 'Orange', image: 'src/assets/images/orange.png', productCount: 63, color: '#fff3ff', group: 'Fruits' },
+    ] as Category[],
+    products: [
+      { id: 1, name: 'Organic Hass Avocado', rating: 4.5, size: '1kg, Price', image: 'src/assets/images/avocado.png', price: 4.99, promotionAsPercentage: 10, categoryId: 1, instock: 20, countSold: 15, group: 'Fruits' },
+      { id: 2, name: 'Fresh Red Apple', rating: 4.0, size: '1kg, Price', image: 'src/assets/images/red-apple.png', price: 3.49, promotionAsPercentage: 0, categoryId: 4, instock: 30, countSold: 8, group: 'Fruits' },
+      { id: 3, name: 'Organic Bananas', rating: 4.8, size: '1kg, Price', image: 'src/assets/images/banana.png', price: 2.99, promotionAsPercentage: 5, categoryId: 2, instock: 25, countSold: 12, group: 'Fruits' },
+      { id: 4, name: 'Fresh Broccoli', rating: 4.3, size: '1kg, Price', image: 'src/assets/images/broccoli.png', price: 2.49, promotionAsPercentage: 0, categoryId: 7, instock: 15, countSold: 5, group: 'Vegetables' },
+      { id: 5, name: 'Carrots', rating: 4.1, size: '1kg, Price', image: 'src/assets/images/carrots.png', price: 1.99, promotionAsPercentage: 0, categoryId: 7, instock: 40, countSold: 20, group: 'Vegetables' },
+      { id: 6, name: 'Strawberries', rating: 4.7, size: '1kg, Price', image: 'src/assets/images/strawberries.png', price: 5.49, promotionAsPercentage: 15, categoryId: 2, instock: 10, countSold: 18, group: 'Fruits' },
+      { id: 7, name: 'Spinach', rating: 4.2, size: '1kg, Price', image: 'src/assets/images/spinach.png', price: 2.29, promotionAsPercentage: 0, categoryId: 7, instock: 22, countSold: 7, group: 'Vegetables' },
+      { id: 8, name: 'Blueberries', rating: 4.6, size: '1kg, Price', image: 'src/assets/images/blueberries.png', price: 6.99, promotionAsPercentage: 10, categoryId: 2, instock: 18, countSold: 14, group: 'Fruits' },
+      { id: 9, name: 'Cauliflower', rating: 4.4, size: '1kg, Price', image: 'src/assets/images/cauliflower.png', price: 2.79, promotionAsPercentage: 0, categoryId: 7, instock: 12, countSold: 6, group: 'Vegetables' },
+      { id: 10, name: 'Raspberries', rating: 4.5, size: '1kg, Price', image: 'src/assets/images/raspberries.png', price: 7.49, promotionAsPercentage: 20, categoryId: 2, instock: 14, countSold: 11, group: 'Fruits' },
+    ] as Product[]
   }),
   getters: {
     getCategoriesByGroup: (state) => {

@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import SearchBoxComponent from './SearchBoxComponent.vue'
-import logoImg from '../assets/Logo.png'
-import hotlineImg from '../assets/Hotline.png'
-import shopping from '../assets/fi-rs-shopping-cart.svg'
-import user from '../assets/fi-rs-user.svg'
-import heart from '../assets/fi-rs-heart.svg'
-import compare from '../assets/icon-compare 1.svg'
-import flame from '../assets/fi-rs-flame 1.svg'
-
+import logoImg from '@/assets/images/Logo.png'
+import shopping from '@/assets/svg/fi-rs-shopping-cart.svg'
+import user from '@/assets/svg/fi-rs-user.svg'
+import hotlineImg from '@/assets/images/Hotline.png'
+import heart from '@/assets/svg/fi-rs-heart.svg'
+import compare from '@/assets/svg/fi-rs-shuffle 1.svg'
+import flame from '@/assets/svg/fi-rs-flame 1.svg'
 </script>
 
 <template>

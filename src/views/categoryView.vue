@@ -20,9 +20,10 @@ const products = computed(() => {
 })
 
 onMounted(async () => {
-  if (productStore.categories.length === 0) {
-    await productStore.fetchAllData()
-  }
+  // Data is already in store state
+  // if (productStore.categories.length === 0) {
+  //   await productStore.initializeStore()
+  // }
 })
 </script>
 
