@@ -87,6 +87,10 @@ function decrement() {
       <button class="icon-btn"><i class="fa-solid fa-shuffle"><img :src="cart" alt=""></i></button>
     </div>
 
+    <div class="meta-info">
+      <p><strong>Vendor:</strong> <span class="text-gray">NestMart</span></p>
+      <p><strong>SKU:</strong> <span class="text-gray">FWM15VKT</span></p>
+    </div>
   </div>
 </template>
 
